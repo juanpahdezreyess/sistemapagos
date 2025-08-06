@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Colegio - Registro de Alumnos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Gestión Escolar</h1>
+        <nav>
+            <button onclick="mostrarSeccion('registro')">Registrar Alumno</button>
+            <button onclick="mostrarSeccion('lista')">Lista de Alumnos</button>
+            <button onclick="mostrarSeccion('pagos')">Registrar Pagos</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección de Registro -->
+        <section id="registro" class="seccion-activa">
+            <h2>Registrar Nuevo Alumno</h2>
+            <form id="formulario-alumno">
+                <div class="campo">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                
+                <div class="campo">
+                    <label for="grado">Grado:</label>
+                    <select id="grado" required>
+                        <option value="">Seleccione...</option>
+                        <option value="1° Primaria">1° Primaria</option>
+                        <option value="2° Primaria">2° Primaria</option>
+                        <option value="3° Primaria">3° Primaria</option>
+                        <!-- Agrega más opciones según necesites -->
+                    </select>
+                </div>
+                
+                <div class="campo">
+                    <label for="grupo">Grupo:</label>
+                    <input type="text" id="grupo" required placeholder="Ej. A">
+                </div>
+                
+                <div class="campo">
+                    <label for="mensualidad">Mensualidad ($):</label>
+                    <input type="number" id="mensualidad" step="0.01" min="0" required>
+                </div>
+                
+                <div class="campo">
+                    <label for="beca">Beca (%):</label>
+                    <input type="number" id="beca" min="0" max="100" value="0">
+                </div>
+                
+                <button type="submit">Guardar Alumno</button>
+            </form>
+        </section>
+
+        <!-- Sección de Lista de Alumnos -->
+        <section id="lista" class="seccion-oculta">
+            <h2>Alumnos Registrados</h2>
+            <div id="contenedor-alumnos">
+                <!-- Aquí se cargarán los alumnos dinámicamente -->
+            </div>
+        </section>
+
+        <!-- Sección de Pagos -->
+        <section id="pagos" class="seccion-oculta">
+            <h2>Registrar Pagos</h2>
+            <div id="contenedor-pagos">
+                <!-- Formulario de pagos se cargará aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Sistema Escolar &copy; <span id="year"></span></p>
+    </footer>
+
+    <script src="js/sistema.js"></script>
+    <script>
+        // Mostrar año actual
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
